@@ -16,5 +16,5 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o todo cmd/todo/main.go
 # final stage
 FROM scratch
 COPY --from=builder /app/todo /app/
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["/app/todo"]

@@ -26,7 +26,7 @@ func main() {
 	// Instantiate a new type to represent our application.
 	// This type lets us shared setup code with our end-to-end tests.
 	m := NewMain()
-	m.HTTPServer.Addr = ":80"
+	m.HTTPServer.Addr = ":8080"
 
 	// Execute program.
 	if err := m.Run(ctx); err != nil {

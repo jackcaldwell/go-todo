@@ -17,5 +17,5 @@ spec:
               service:
                 name: go-todo
                 port:
-                  number: 80
+                  number: 8080
       host: staging.go-todo.192.168.49.2.xip.io

@@ -17,5 +17,5 @@ spec:
               service:
                 name: go-todo
                 port:
-                  number: 80
+                  number: 8080
       host: acme.com
