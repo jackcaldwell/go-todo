@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-todo
+  labels:
+    app: go-todo
+spec:
+  selector:
+    matchLabels:
+      app: go-todo
+  template:
+    metadata:
+      labels:
+        app: go-todo
+    spec:
+      containers:
+        - name: go-todo
+          image: jackcaldwell/go-todo
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          resources:
+            limits:
+              cpu: 100m
+              memory: 256Mi
+            requests:
+              cpu: 80m
+              memory: 128Mi

@@ -1,0 +1,15 @@
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: go-todo
+  labels:
+    app: go-todo
+spec:
+  minReplicas: 2
+  maxReplicas: 6
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: go-todo
+  targetCPUUtilizationPercentage: 80
