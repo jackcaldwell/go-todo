@@ -48,10 +48,14 @@ func (s *Server) UseTLS() bool {
 	return s.Domain != ""
 }
 
+func healthCheck(w http.ResponseWriter, _ *http.Request) {
+	_, _ = w.Write([]byte("Healthy"))
+}
+
 func (s *Server) Open() (err error) {
 	// Assign all the
 	s.configureHandlers()
-	// s.router.Handle("/metrics", promhttp.)
+	s.router.HandleFunc("/health", healthCheck)
 
 	// Open a listener on our bind address.
 	if s.ln, err = net.Listen("tcp", s.Addr); err != nil {
