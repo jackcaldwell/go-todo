@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: go-todo
-          image: jackcaldwell/go-todo
+          image: '{{input.parameters.image_owner}}/go-todo:{{input.parameters.tag}}'
           ports:
             - containerPort: 8080
           livenessProbe:
