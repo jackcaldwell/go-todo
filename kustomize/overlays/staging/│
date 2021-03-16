@@ -1,0 +1,38 @@
+kind: Deployment                                                                                                                            │          readinessProbe:
+metadata:                                                                                                                                   │            httpGet:
+  name: go-todo                                                                                                                             │              path: /health
+  labels:                                                                                                                                   │              port: 8080
+    app: go-todo                                                                                                                            │          resources:
+spec:                                                                                                                                       │            limits:
+  selector:                                                                                                                                 │              cpu: 100m
+    matchLabels:                                                                                                                            │              memory: 256Mi
+      app: go-todo                                                                                                                          │            requests:
+  template:                                                                                                                                 │              cpu: 80m
+    metadata:                                                                                                                               │              memory: 128Mi
+      labels:                                                                                                                               │➜  staging git:(main) ✗ cat deployment.yaml
+        app: go-todo                                                                                                                        │apiVersion: apps/v1
+    spec:                                                                                                                                   │kind: Deployment
+      containers:                                                                                                                           │metadata:
+        - name: go-todo                                                                                                                     │  name: go-todo
+          image: jackcaldwell/go-todo                                                                                                       │  labels:
+          ports:                                                                                                                            │    app: go-todo
+            - containerPort: 8080                                                                                                           │spec:
+          livenessProbe:                                                                                                                    │  selector:
+            httpGet:                                                                                                                        │    matchLabels:
+              path: /health                                                                                                                 │      app: go-todo
+              port: 8080                                                                                                                    │  template:
+          readinessProbe:                                                                                                                   │    metadata:
+            httpGet:                                                                                                                        │      labels:
+              path: /health                                                                                                                 │        app: go-todo
+              port: 8080                                                                                                                    │    spec:
+          resources:                                                                                                                        │      containers:
+            limits:                                                                                                                         │        - name: go-todo
+              cpu: 100m                                                                                                                     │          image: jackcaldwell/go-todo
+              memory: 256Mi                                                                                                                 │          ports:
+            requests:                                                                                                                       │            - containerPort: 8080
+              cpu: 80m                                                                                                                      │          livenessProbe:
+              memory: 128Mi
+q
+:q
+exit
+:wq
