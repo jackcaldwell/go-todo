@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: go-todo
-          image: '328373003584.dkr.ecr.eu-west-2.amazonaws.com/go-todo:63ec6806b6ff7e72bd89a21f1e411e47220ebc8b'
+          image: '328373003584.dkr.ecr.eu-west-2.amazonaws.com/go-todo:d834aec447bb0c4af1782f4595b3b0c08e559c08'
           ports:
             - containerPort: 8080
           livenessProbe:
