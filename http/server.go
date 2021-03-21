@@ -49,7 +49,7 @@ func (s *Server) UseTLS() bool {
 }
 
 func healthCheck(w http.ResponseWriter, _ *http.Request) {
-	_, _ = w.Write([]byte("Healthy new"))
+	_, _ = w.Write([]byte("Healthy"))
 }
 
 func (s *Server) Open() (err error) {
